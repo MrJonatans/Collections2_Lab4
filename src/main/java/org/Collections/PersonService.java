@@ -45,13 +45,11 @@ public class PersonService {
                 String departmentName = nextLine[4];
                 double salary = Double.parseDouble(nextLine[5]);
 
-                // Create or get existing department
                 Department department = departmentMap.computeIfAbsent(departmentName, k -> {
                     int departmentId = departmentIdCounter.getAndIncrement();
                     return new Department(departmentId, departmentName);
                 });
 
-                // Create a Person object
                 Person person = new Person(id, name, gender, department, salary, birthDate);
                 people.add(person);
             }
